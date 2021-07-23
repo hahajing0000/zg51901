@@ -1,0 +1,7 @@
+include ':Common'
+include ':Net'
+include ':Resource'
+include ':UserCenter'
+include ':MVPCore'
+include ':app'
+rootProject.name = "KT1901ZG5"
