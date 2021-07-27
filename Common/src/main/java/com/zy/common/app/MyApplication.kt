@@ -14,6 +14,7 @@ import java.util.*
 class MyApplication:Application() {
     lateinit var acitivies:MutableList<Activity>
     init {
+        acitivies= mutableListOf<Activity>()
         registerActivityLifecycleCallbacks(object:Application.ActivityLifecycleCallbacks{
             override fun onActivityPaused(activity: Activity) {
                 Log.d("123", "onActivityPaused: ${activity.toString()}")
