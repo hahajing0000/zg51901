@@ -5,6 +5,10 @@ import android.app.Application
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
+import com.zy.common.log.EmailLog
+import com.zy.common.log.LocalDBLog
+import com.zy.common.log.LogType
+import com.zy.common.log.LogUtils
 import java.util.*
 
 /**
@@ -45,6 +49,14 @@ class MyApplication:Application() {
             }
 
         })
+
+        /**
+         * 将Log的输出修改为存储到DB
+         */
+//        LogUtils.setLogTarget()
+//        LogUtils.setLogLevel(LogType.WORNNING.ordinal)
+
+//        LogUtils.builder().setLogTarget().setLogLevel().build()
     }
 
     override fun onCreate() {

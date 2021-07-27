@@ -5,8 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.LifecycleOwner
+import com.zy.common.log.LogType
+import com.zy.common.log.LogUtils
 import com.zy.common.sp.SPPropDelegate
+import com.zy.common.thread.runOnAsync
+import com.zy.common.thread.runOnUi
 import com.zy.common.zg1901eventbus.ObserverUtils
 import com.zy.common.zg1901eventbus.ZObserver
 import com.zy.mvpcore.view.BaseMVPActivity
@@ -16,6 +21,10 @@ import com.zy.usercenter.model.protocol.req.UserEntitiy
 import com.zy.usercenter.presenter.UserCenterPresenterImpl
 import com.zy.usercenter.repository.UserCenterRepositoryImpl
 import kotlinx.android.synthetic.main.activity_login.*
+import java.util.*
+import java.util.concurrent.atomic.AtomicBoolean
+import java.util.concurrent.atomic.AtomicInteger
+import java.util.concurrent.atomic.AtomicLong
 
 class LoginActivity : BaseMVPActivity<UserCenterPresenterImpl>(),UserCenterContract.UserCenterView ,ZObserver{
 
@@ -38,7 +47,14 @@ class LoginActivity : BaseMVPActivity<UserCenterPresenterImpl>(),UserCenterContr
 //            username="xiaoming"
 //            Log.d("123", "username : $username")
 
-            startService(Intent(this@LoginActivity,MyService::class.java))
+//            startService(Intent(this@LoginActivity,MyService::class.java))
+
+            this.runOnAsync {
+                LogUtils.log(LogType.DEBUG,"initEvent: ThreadName-> ${Thread.currentThread().name}")
+                this.runOnUi {
+                    LogUtils.log(LogType.WORNNING,"initEvent: runOnUI ThreadName -> ${Thread.currentThread().name}")
+                }
+            }
 
         }
     }
@@ -66,8 +82,18 @@ class LoginActivity : BaseMVPActivity<UserCenterPresenterImpl>(),UserCenterContr
         return this
     }
 
+
     override fun notify(vararg args: String?) {
         Log.d("123", "notify: ....")
+
+
+//        this.runOnAsync {
+//
+//        }
+//        this.runOnUi {
+//            Toast.makeText(this, "111", Toast.LENGTH_SHORT).show()
+//        }
+
         for (arg in args){
             Log.d("123", "notify: ${arg}")
         }
