@@ -15,7 +15,9 @@
             android:enabled="true"
             android:exported="true"></service>
 
-        <activity android:name=".ui.RxJava2Activity"></activity>
+        <activity android:name=".ui.RxJava2Activity">
+
+        </activity>
         <activity android:name=".ui.RxjavaActivity"></activity>
         <activity android:name=".ui.LoginActivity">
             <intent-filter>

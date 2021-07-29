@@ -56,6 +56,7 @@ class LoginActivity : BaseMVPActivity<UserCenterPresenterImpl>(),UserCenterContr
                 }
             }
 
+
         }
     }
 

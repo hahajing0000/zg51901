@@ -40,4 +40,7 @@ dependencies {
     api libs.autodispose
     api libs.autodisposearchcomponents
     api libs.retrofit
+
+    api libs.coroutinescore
+    api libs.coroutinesandroid
 }

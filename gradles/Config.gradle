@@ -14,6 +14,8 @@ ext{
             rxjava:"io.reactivex.rxjava2:rxjava:$version.rxjava",
 
             retrofitcoroutines:"com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$version.retrofitcoroutines",
+            coroutinescore : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version.coroutinescore",
+            coroutinesandroid:"org.jetbrains.kotlinx:kotlinx-coroutines-android:$version.coroutinescore",
 
             autodisposearchcomponents:"com.uber.autodispose:autodispose-android-archcomponents:$version.autodisposearchcomponents",
             autodispose:"com.uber.autodispose:autodispose-android:$version.autodispose",

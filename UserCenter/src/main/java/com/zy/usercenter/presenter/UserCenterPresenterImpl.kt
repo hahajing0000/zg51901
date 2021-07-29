@@ -7,6 +7,9 @@ import com.zy.usercenter.model.protocol.resp.RespUserEntity
 import com.zy.usercenter.repository.UserCenterRepositoryImpl
 import com.zy.net.rxjava.BllObserver
 import com.zy.net.rxjava.ObservableUtils
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 /**
  *@author:zhangyue
@@ -26,6 +29,17 @@ class UserCenterPresenterImpl(_view:UserCenterContract.UserCenterView): UserCent
                 mView.get()!!.registerFailed(e)
             }
         },mView.get()!!.getLifecycleOwner())
+
+
+
+//        GlobalScope.launch(Dispatchers.IO) {
+//            val result = mRepository.register(entity)
+//            launch(Dispatchers.Main) {
+//
+//
+//
+//            }
+//        }
 
     }
 

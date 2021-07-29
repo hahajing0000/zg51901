@@ -6,4 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".ui.RxJava2Activity">
 
+    <Button
+        android:id="@+id/btn_threadlocal_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ThreadLocal Test"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></Button>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

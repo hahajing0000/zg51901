@@ -24,6 +24,8 @@ ext{
 
             retrofitcoroutines:"0.9.2",
 
+            coroutinescore:"1.4.2",
+
             okhttplog:"3.5.0",
             glide: "4.9.0",
 
