@@ -1,5 +1,6 @@
 package com.zy.net
 
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.zy.common.Constant
 import com.zy.common.sp.SPPropDelegate
 import com.zy.net.api.TokenApi
@@ -34,8 +35,10 @@ class RetrofitFactory private constructor(){
     init {
         retorfit=Retrofit.Builder()
             .baseUrl(BuildConfig.BASEURL)
+//            .addConverterFactory(XMLConverterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .addCallAdapterFactory(CoroutineCallAdapterFactory.invoke())
             .client(createOkHttpClient())
             .build()
     }

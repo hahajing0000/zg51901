@@ -9,6 +9,7 @@ import com.zy.common.log.EmailLog
 import com.zy.common.log.LocalDBLog
 import com.zy.common.log.LogType
 import com.zy.common.log.LogUtils
+import com.zy.common.zg1901eventbus.ObserverUtils
 import java.util.*
 
 /**
@@ -36,6 +37,7 @@ class MyApplication:Application() {
             }
 
             override fun onActivityStopped(activity: Activity) {
+                ObserverUtils.getFinalObservable().notifyAll("onstop")
                 Log.d("123", "onActivityStopped: ${activity.toString()}")
             }
 

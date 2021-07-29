@@ -47,6 +47,8 @@ dependencies {
     implementation libs.retrofitrxjava
     implementation libs.okhttplog
 
+    implementation libs.retrofitcoroutines
+
 //    implementation 'com.uber.autodispose2:autodispose-lifecycle:2.0.0'
 //    implementation 'com.uber.autodispose:autodispose-rxlifecycle:1.4.0'
 

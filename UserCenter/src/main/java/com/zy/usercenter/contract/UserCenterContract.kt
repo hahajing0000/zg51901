@@ -8,6 +8,7 @@ import com.zy.net.protocol.resp.BaseRespEntity
 import com.zy.usercenter.model.protocol.req.UserEntitiy
 import com.zy.usercenter.model.protocol.resp.RespUserEntity
 import io.reactivex.Observable
+import kotlinx.coroutines.Deferred
 
 /**
  *@author:zhangyue
@@ -15,11 +16,11 @@ import io.reactivex.Observable
  */
 interface UserCenterContract {
     interface UserCenterModel:IModel{
-        fun register(entity:UserEntitiy):Observable<BaseRespEntity<RespUserEntity>>
+        fun register(entity:UserEntitiy):Deferred<BaseRespEntity<RespUserEntity>>
     }
 
     abstract class UserCenterRepository:BaseRepository<UserCenterModel>(){
-        abstract fun register(entity:UserEntitiy):Observable<BaseRespEntity<RespUserEntity>>
+        abstract fun register(entity:UserEntitiy):Deferred<BaseRespEntity<RespUserEntity>>
     }
 
     interface UserCenterView:IVew{

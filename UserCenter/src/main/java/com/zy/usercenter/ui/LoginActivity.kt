@@ -21,6 +21,7 @@ import com.zy.usercenter.model.protocol.req.UserEntitiy
 import com.zy.usercenter.presenter.UserCenterPresenterImpl
 import com.zy.usercenter.repository.UserCenterRepositoryImpl
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.coroutines.*
 import java.util.*
 import java.util.concurrent.atomic.AtomicBoolean
 import java.util.concurrent.atomic.AtomicInteger
@@ -40,21 +41,26 @@ class LoginActivity : BaseMVPActivity<UserCenterPresenterImpl>(),UserCenterContr
 
     override fun initEvent() {
         btn_login_login.setOnClickListener {
-//            val phoneNumber:String=et_login_phonenumber.text.trim().toString()
-//            val pwd:String=et_login_pwd.text.trim().toString()
-//
-//            mPresenter.register(UserEntitiy("2021-01-01",0,pwd,"1",phoneNumber))
+            val phoneNumber:String=et_login_phonenumber.text.trim().toString()
+            val pwd:String=et_login_pwd.text.trim().toString()
+
+            mPresenter.register(UserEntitiy("2021-01-01",0,pwd,"1",phoneNumber))
 //            username="xiaoming"
 //            Log.d("123", "username : $username")
 
 //            startService(Intent(this@LoginActivity,MyService::class.java))
 
-            this.runOnAsync {
-                LogUtils.log(LogType.DEBUG,"initEvent: ThreadName-> ${Thread.currentThread().name}")
-                this.runOnUi {
-                    LogUtils.log(LogType.WORNNING,"initEvent: runOnUI ThreadName -> ${Thread.currentThread().name}")
-                }
-            }
+//            this.runOnAsync {
+//                LogUtils.log(LogType.DEBUG,"initEvent: ThreadName-> ${Thread.currentThread().name}")
+//                this.runOnUi {
+//                    LogUtils.log(LogType.WORNNING,"initEvent: runOnUI ThreadName -> ${Thread.currentThread().name}")
+//                }
+//            }
+
+//            launch {
+//                delay(1000L)
+//                LogUtils.log(LogType.WORNNING,"协程环境正常")
+//            }
 
 
         }
@@ -69,14 +75,18 @@ class LoginActivity : BaseMVPActivity<UserCenterPresenterImpl>(),UserCenterContr
      */
     override fun releaseResource() {
         ObserverUtils.getFinalObservable().unRegisterObserver(this)
+//        mPresenter.destory()
     }
 
     override fun <T> registerSuccess(data: T) {
         Log.d("123", "registerSuccess: ${data.toString()}")
+        showMsg("result:${data.toString()}")
+
     }
 
     override fun registerFailed(throwable: Throwable) {
         Log.w("123", "registerFailed: ${throwable.message}")
+        showMsg("failed,msg:${throwable.message}")
     }
 
     override fun getLifecycleOwner(): LifecycleOwner {

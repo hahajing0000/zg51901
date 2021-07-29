@@ -4,6 +4,7 @@ import com.zy.net.protocol.resp.BaseRespEntity
 import com.zy.usercenter.model.protocol.req.UserEntitiy
 import com.zy.usercenter.model.protocol.resp.RespUserEntity
 import io.reactivex.Observable
+import kotlinx.coroutines.Deferred
 import retrofit2.http.Body
 import retrofit2.http.POST
 
@@ -14,5 +15,5 @@ import retrofit2.http.POST
 interface UserCenterApi {
 
     @POST("api/User/register")
-    fun register(@Body params:UserEntitiy):Observable<BaseRespEntity<RespUserEntity>>
+    fun register(@Body params:UserEntitiy):Deferred<BaseRespEntity<RespUserEntity>>
 }
