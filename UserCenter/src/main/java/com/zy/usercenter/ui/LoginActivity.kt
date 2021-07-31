@@ -1,17 +1,9 @@
 package com.zy.usercenter.ui
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.widget.Toast
 import androidx.lifecycle.LifecycleOwner
-import com.zy.common.log.LogType
-import com.zy.common.log.LogUtils
 import com.zy.common.sp.SPPropDelegate
-import com.zy.common.thread.runOnAsync
-import com.zy.common.thread.runOnUi
 import com.zy.common.zg1901eventbus.ObserverUtils
 import com.zy.common.zg1901eventbus.ZObserver
 import com.zy.mvpcore.view.BaseMVPActivity
@@ -19,13 +11,7 @@ import com.zy.usercenter.R
 import com.zy.usercenter.contract.UserCenterContract
 import com.zy.usercenter.model.protocol.req.UserEntitiy
 import com.zy.usercenter.presenter.UserCenterPresenterImpl
-import com.zy.usercenter.repository.UserCenterRepositoryImpl
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.coroutines.*
-import java.util.*
-import java.util.concurrent.atomic.AtomicBoolean
-import java.util.concurrent.atomic.AtomicInteger
-import java.util.concurrent.atomic.AtomicLong
 
 class LoginActivity : BaseMVPActivity<UserCenterPresenterImpl>(),UserCenterContract.UserCenterView ,ZObserver{
 
@@ -67,14 +53,14 @@ class LoginActivity : BaseMVPActivity<UserCenterPresenterImpl>(),UserCenterContr
     }
 
     override fun initData(savedInstanceState:Bundle?) {
-        ObserverUtils.getFinalObservable().registerObserver(this)
+//        ObserverUtils.getFinalObservable("")!!.registerObserver(this)
     }
 
     /**
      * 该方法是在OnStop中调用 所有可以用于释放资源 比如 ： 移除Handler  停止动画。。。
      */
     override fun releaseResource() {
-        ObserverUtils.getFinalObservable().unRegisterObserver(this)
+        ObserverUtils.getFinalObservable("")!!.unRegisterObserver(this)
 //        mPresenter.destory()
     }
 

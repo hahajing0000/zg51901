@@ -15,7 +15,7 @@ class MyService : Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         Log.d("123", "onStartCommand: server start")
 
-        ObserverUtils.getFinalObservable().notifyAll("1","2")
+        ObserverUtils.getFinalObservable("")!!.notifyAll("1","2")
 
         return START_STICKY
     }

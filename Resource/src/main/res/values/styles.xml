@@ -7,4 +7,15 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="RootLayoutStyle"
+>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <style name="NormalFontStyle">
+        <item name="color">#00ff00</item>
+        <item name="android:textSize">23sp</item>
+    </style>
+
 </resources>

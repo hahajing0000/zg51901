@@ -23,7 +23,8 @@ abstract class BasePresenter<Repo:BaseRepository<*>,V:IVew>(_view:V):ZObserver {
         mView=SoftReference<V>(_view)
         job= Job()
 
-        ObserverUtils.getFinalObservable().registerObserver(this)
+//        val finalObservable = ObserverUtils.getFinalObservable("")!!
+//        finalObservable.registerObserver(this)
     }
 
     abstract fun createRepository(): Repo

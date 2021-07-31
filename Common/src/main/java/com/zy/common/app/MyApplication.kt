@@ -5,12 +5,8 @@ import android.app.Application
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
-import com.zy.common.log.EmailLog
-import com.zy.common.log.LocalDBLog
-import com.zy.common.log.LogType
-import com.zy.common.log.LogUtils
 import com.zy.common.zg1901eventbus.ObserverUtils
-import java.util.*
+import me.weishu.reflection.Reflection
 
 /**
  *@author:zhangyue
@@ -37,7 +33,7 @@ class MyApplication:Application() {
             }
 
             override fun onActivityStopped(activity: Activity) {
-                ObserverUtils.getFinalObservable().notifyAll("onstop")
+                ObserverUtils.getFinalObservable("")!!.notifyAll("onstop")
                 Log.d("123", "onActivityStopped: ${activity.toString()}")
             }
 
@@ -59,6 +55,14 @@ class MyApplication:Application() {
 //        LogUtils.setLogLevel(LogType.WORNNING.ordinal)
 
 //        LogUtils.builder().setLogTarget().setLogLevel().build()
+    }
+
+    override fun attachBaseContext(base: Context?) {
+        super.attachBaseContext(base)
+        /**
+         * 处理Android P 以上版本反射无法使用的问题
+         */
+        Reflection.unseal(base)
     }
 
     override fun onCreate() {

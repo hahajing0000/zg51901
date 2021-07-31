@@ -43,4 +43,10 @@ dependencies {
 
     api libs.coroutinescore
     api libs.coroutinesandroid
+
+    /**
+     * 适配Android P以上版本反射无法使用的问题
+     */
+    api 'me.weishu:free_reflection:2.2.0'
+
 }
